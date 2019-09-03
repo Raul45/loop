@@ -1,0 +1,13 @@
+{
+  "db": {
+    "host": "ds215988.mlab.com:15988/apiloop",
+    "port": 15988,
+    "url": "mongodb://Guao:Guao2019@ds215988.mlab.com:15988/apiloop",
+    "database": "apiloop",
+    "password": "Guao2019",
+    "name": "db",
+    "user": "Guao",
+    "useNewUrlParser": true,
+    "connector": "mongodb"
+  }
+}
