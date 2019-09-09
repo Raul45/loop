@@ -1,26 +1,52 @@
 {
-  "name": "usuario",
-  "plural": "usuarios",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "nombre": {
-      "type": "string",
-      "required": true
+    "name": "usuario",
+    "plural": "usuarios",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "email": {
-      "type": "string",
-      "required": true
+    "properties": {
+        "nombre": {
+            "type": "string",
+            "required": true
+        },
+        "email": {
+            "type": "string",
+            "required": true
+        },
+        "password": {
+            "type": "string"
+        }
     },
-    "password": {
-      "type": "string"
+    "validations": [],
+    "relations": {
+        "redes": {
+            "type": "hasMany",
+            "model": "redes",
+            "foreignKey": "userId"
+        }
+    },
+    "acls": [],
+    "methods": {
+        "prototype.email": {
+            "accepts": [{
+                "arg": "email",
+                "type": "string",
+                "required": true,
+                "description": "Verificar si el email es authentico"
+            }],
+            "returns": [{
+                "arg": "result",
+                "type": "object",
+                "root": true,
+                "description": "Resultado de veriricacion"
+            }],
+            "description": "encontrar email",
+            "http": [{
+                "path": "/email",
+                "verb": "get"
+            }]
+        }
     }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
 }
